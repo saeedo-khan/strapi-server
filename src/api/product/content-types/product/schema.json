@@ -1,0 +1,71 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "Product",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "men_fashions": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::men-fashion.men-fashion",
+      "inversedBy": "products"
+    },
+    "quantity": {
+      "type": "integer",
+      "required": false,
+      "default": 0
+    },
+    "women_fashions": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::women-fashion.women-fashion",
+      "inversedBy": "products"
+    },
+    "new_items": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::new-item.new-item",
+      "mappedBy": "products"
+    },
+    "kids_fashions": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::kids-fashion.kids-fashion",
+      "inversedBy": "products"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "kids_fashions",
+  "info": {
+    "singularName": "kids-fashion",
+    "pluralName": "kids-fashions",
+    "displayName": "kids-fashion",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "categories": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "products": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product.product",
+      "inversedBy": "kids_fashions"
+    }
+  }
+}
