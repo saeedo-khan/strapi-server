@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "women_fashions",
+  "info": {
+    "singularName": "women-fashion",
+    "pluralName": "women-fashions",
+    "displayName": "women-fashion",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "categories": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "products": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product.product",
+      "inversedBy": "women_fashions"
+    }
+  }
+}

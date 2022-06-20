@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "men_fashions",
+  "info": {
+    "singularName": "men-fashion",
+    "pluralName": "men-fashions",
+    "displayName": "men-fashion",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "categories": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "products": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product.product",
+      "mappedBy": "men_fashions"
+    }
+  }
+}
