@@ -1,0 +1,8 @@
+{
+    "provider": "cloudinary",
+    "providerOptions": {
+        "cloud_name": "dgpppa0f1",
+        "api_key": "133667585744432",
+        "api_secret": "vHSNbda0YrTzeR_mGwlwjHLThYU"
+    }
+}
