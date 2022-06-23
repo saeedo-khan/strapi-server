@@ -1,28 +1,16 @@
-const parse = require('pg-connection-string').parse;
+module.exports = ({ env }) => ({
+  connection: {
+    client: 'postgres',
+    connection: {
+      host: env('DATABASE_HOST', 'localhost'),
+      port: env.int('DATABASE_PORT', 5432),
+      database: env('DATABASE_NAME', 'strapiapi'),
+      user: env('DATABASE_USERNAME', 'postgres'),
+      password: env('DATABASE_PASSWORD', '0000'),
+      ssl: false,
+    },
+    debug: false,
+  },
+});
 
-module.exports = ({ env }) => {
-
-  if(env('NODE_ENV') === 'production'){
-    const config = parse(process.env.DATABASE_URL);
-    return {
-      defaultConnection: 'default',
-      connections: {
-        default: {
-          connector: 'ecommerce',
-          settings: {
-            client: 'postgres',
-            host: config.host,
-            port: config.port,
-            database: config.database,
-            username: config.user,
-            password: config.password,
-          },
-          options: {
-            ssl: false,
-          },
-        },
-      },
-    }
-  }
-  
-};
+// {rejectUnauthorized: env.bool('DATABASE_SSL_SELF', false),
